@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: orders-postgres
+    environment:
+      POSTGRES_DB: orders
+      POSTGRES_USER: orders
+      POSTGRES_PASSWORD: orders
+    # 5432 и 5433 на машине разработки часто заняты другими стеками, поэтому наружу — 5434.
+    ports:
+      - "5434:5432"
+    volumes:
+      - orders-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orders -d orders"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  orders-pgdata:
