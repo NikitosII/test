@@ -60,7 +60,6 @@ public static class ValidationProblemDetailsFactory
         return modelErrors.Select(error => (Key: key, Message: error.ErrorMessage));
     }
 
-    // Ключ, начинающийся с '$', — это JSON-путь от System.Text.Json, то есть тело не разобралось.
     private static bool IsBindingError(string modelStateKey, HashSet<string> bodyParameterNames) =>
         string.IsNullOrEmpty(modelStateKey)
         || modelStateKey.StartsWith('$')

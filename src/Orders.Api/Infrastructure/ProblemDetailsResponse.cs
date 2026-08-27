@@ -20,7 +20,6 @@ public static class ProblemDetailsResponse
     }
 }
 
-/// <summary>Результат действия, отдающий ProblemDetails в обход согласования типов.</summary>
 public sealed class ProblemDetailsResult(ProblemDetails problemDetails) : IActionResult
 {
     public Task ExecuteResultAsync(ActionContext context) =>

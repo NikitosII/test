@@ -8,7 +8,7 @@ using Orders.Infrastructure.Persistence;
 namespace Orders.Infrastructure.Numbering;
 
 /// <summary>
-/// Выдаёт порядковый номер дня одним атомарным UPSERT'ом с <c>RETURNING</c>.
+/// Выдаёт порядковый номер дня одним атомарным UPSERT'ом.
 /// </summary>
 public sealed class DailyCounterOrderNumberGenerator(AppDbContext context) : IOrderNumberGenerator
 {
